@@ -1,7 +1,8 @@
 // Support page — content preserved exactly as Krish wrote it
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import AfterlyWordmark from '../components/AfterlyWordmark'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import Glow from '../components/Glow'
 import { PAL, FONT } from '../tokens'
 
@@ -13,34 +14,16 @@ export default function Support() {
     return () => window.removeEventListener('resize', handler)
   }, [])
 
-  const footerLinkStyle = { color: PAL.muted, fontFamily: FONT, fontSize: 13, textDecoration: 'none' }
-
   return (
-    <div style={{ minHeight: '100vh', background: PAL.bg }}>
-      <nav style={{
-        position: 'relative', zIndex: 10,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: mobile ? '20px 24px' : '24px 56px',
-        maxWidth: 1240, margin: '0 auto', width: '100%',
-      }}>
-        <Link to="/" style={{ textDecoration: 'none' }}><AfterlyWordmark /></Link>
-        <Link to="/" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 10,
-          padding: '10px 22px', borderRadius: 999,
-          background: 'rgba(139,92,246,0.85)', border: 'none',
-          color: PAL.white, fontFamily: FONT,
-          fontSize: 13, fontWeight: 600, letterSpacing: -0.2,
-          textDecoration: 'none',
-          boxShadow: '0 8px 28px rgba(124,108,255,0.35)',
-        }}>Download</Link>
-      </nav>
+    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
+      <Nav mobile={mobile} />
 
       <main style={{ position: 'relative', overflow: 'hidden' }}>
         <Glow x="50%" y="40%" size={mobile ? 600 : 900} intensity={0.18} />
         <div style={{
           position: 'relative', zIndex: 2,
           maxWidth: 600, margin: '0 auto',
-          padding: mobile ? '80px 24px' : '120px 24px',
+          padding: mobile ? '60px 24px' : '120px 24px',
           textAlign: 'center',
         }}>
           <h1 style={{
@@ -65,7 +48,6 @@ export default function Support() {
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             margin: mobile ? '40px 0 0' : '56px 0 0',
-            textAlign: 'center',
           }}>
             <p style={{
               fontFamily: FONT, fontSize: 11, fontWeight: 600,
@@ -77,7 +59,7 @@ export default function Support() {
             <p style={{ fontFamily: FONT, fontWeight: 800, fontSize: mobile ? 26 : 32, color: PAL.white, letterSpacing: '-0.02em', lineHeight: 1.1, margin: 0, wordBreak: 'break-word' }}>
               <a href="mailto:useafterly@gmail.com" style={{ color: PAL.white, textDecoration: 'none' }}>useafterly@gmail.com</a>
             </p>
-            <p style={{ fontFamily: FONT, fontSize: 14, fontWeight: 400, color: PAL.muted, lineHeight: 1.55, margin: '18px 0 0' }}>
+            <p style={{ fontFamily: FONT, fontSize: 14, color: PAL.muted, lineHeight: 1.55, margin: '18px 0 0' }}>
               We typically respond within 24 hours.
             </p>
           </div>
@@ -91,23 +73,7 @@ export default function Support() {
         </div>
       </main>
 
-      <footer style={{ position: 'relative', borderTop: `1px solid ${PAL.cardBorder}` }}>
-        <div style={{
-          maxWidth: 1240, margin: '0 auto',
-          padding: mobile ? '28px 24px' : '32px 56px',
-          display: 'flex', flexDirection: mobile ? 'column' : 'row',
-          alignItems: mobile ? 'flex-start' : 'center',
-          justifyContent: 'space-between', gap: mobile ? 16 : 0,
-        }}>
-          <Link to="/" style={{ textDecoration: 'none' }}><AfterlyWordmark size={15} /></Link>
-          <div style={{ display: 'flex', gap: 24 }}>
-            <Link to="/privacy" style={footerLinkStyle}>Privacy</Link>
-            <Link to="/terms" style={footerLinkStyle}>Terms</Link>
-            <Link to="/support" style={footerLinkStyle}>Support</Link>
-          </div>
-          <div style={{ fontFamily: FONT, fontSize: 12, color: PAL.mutedSoft }}>© 2026 afterly</div>
-        </div>
-      </footer>
+      <Footer mobile={mobile} />
     </div>
   )
 }

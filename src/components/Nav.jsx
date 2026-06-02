@@ -80,10 +80,10 @@ export default function Nav({ mobile, minimal = false }) {
           <div style={{ padding: '16px 24px 24px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               {[
-                { label: 'Home', to: '/', internal: true },
-                { label: 'Privacy', to: '/privacy', internal: true },
-                { label: 'Terms', to: '/terms', internal: true },
-                { label: 'Support', to: '/support', internal: true },
+                { label: 'Home', to: '/' },
+                { label: 'Blog', to: '/blog' },
+                { label: 'Resources', to: '/resources' },
+                { label: 'Support', to: '/support' },
               ].map(item => (
                 <Link
                   key={item.label}

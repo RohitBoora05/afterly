@@ -1,5 +1,7 @@
 // Privacy Policy — content preserved exactly as Krish wrote it
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
 import AfterlyWordmark from '../components/AfterlyWordmark'
 import { PAL, FONT } from '../tokens'
 
@@ -29,12 +31,16 @@ const S = {
 }
 
 export default function Privacy() {
+  const [mobile, setMobile] = useState(window.innerWidth < 768)
+  useEffect(() => {
+    const handler = () => setMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
+
   return (
-    <div style={{ minHeight: '100vh', background: PAL.bg }}>
-      <nav style={S.nav}>
-        <Link to="/" style={{ textDecoration: 'none' }}><AfterlyWordmark /></Link>
-        <Link to="/" style={{ ...S.footerLink, padding: '10px 22px', borderRadius: 999, background: 'rgba(139,92,246,0.85)', color: '#fff', fontWeight: 600, fontSize: 13 }}>Download</Link>
-      </nav>
+    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
+      <Nav mobile={mobile} />
 
       <main style={S.content}>
         <h1 style={S.h1}>Privacy Policy</h1>

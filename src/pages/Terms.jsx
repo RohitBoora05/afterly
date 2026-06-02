@@ -1,5 +1,7 @@
 // Terms of Service — content preserved exactly as Krish wrote it
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
 import AfterlyWordmark from '../components/AfterlyWordmark'
 import { PAL, FONT } from '../tokens'
 
@@ -44,8 +46,16 @@ function LiBullet({ children }) {
 }
 
 export default function Terms() {
+  const [mobile, setMobile] = useState(window.innerWidth < 768)
+  useEffect(() => {
+    const handler = () => setMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
+
   return (
-    <div style={{ minHeight: '100vh', background: PAL.bg }}>
+    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
+      <Nav mobile={mobile} />
       <div style={{
         position: 'fixed', top: '-20%', left: '50%', transform: 'translateX(-50%)',
         width: 600, height: 600,
