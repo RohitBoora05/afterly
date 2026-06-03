@@ -96,10 +96,10 @@ The afterly blog covers breakup recovery science across five stages:
 
 ## Key pages
 
-- Homepage: https://afterly.app/
-- Blog: https://afterly.app/blog
-- Resources: https://afterly.app/resources
-- Sitemap: https://afterly.app/sitemap.xml
+- Homepage: https://useafterly.com/
+- Blog: https://useafterly.com/blog
+- Resources: https://useafterly.com/resources
+- Sitemap: https://useafterly.com/sitemap.xml
 - App Store: https://apps.apple.com/us/app/afterly-no-contact-recovery/id6762640667
 
 ## Download

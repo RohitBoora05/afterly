@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs'
 import { posts } from './src/data/posts.js'
 
-const BASE = 'https://afterly.app'
+const BASE = 'https://useafterly.com'
 
 const staticPages = [
   { loc: '/',          changefreq: 'weekly',  priority: '1.0' },

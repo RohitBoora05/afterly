@@ -49,7 +49,7 @@ export const posts = [
       { type: 'p', text: 'Not because an app fixes a breakup.' },
       { type: 'highlight', text: 'Because the problem was never willpower - it was having nowhere to put the urge.' },
       { type: 'p', text: 'We tried to build somewhere.' },
-      { type: 'p', text: 'If you\'re in it right now, afterly.app.' },
+      { type: 'p', text: 'If you\'re in it right now, useafterly.com.' },
     ],
   },
 

@@ -34,9 +34,9 @@ export default function Blog() {
         <meta name="description" content="No toxic positivity. No '10 tips' lists. Real writing about what no contact actually feels like and what actually helps." />
         <meta property="og:title" content="afterly Blog — Honest writing about heartbreak and healing" />
         <meta property="og:description" content="Real writing about no contact, breakup recovery, and what actually helps." />
-        <meta property="og:url" content="https://afterly.app/blog" />
+        <meta property="og:url" content="https://useafterly.com/blog" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://afterly.app/blog" />
+        <link rel="canonical" href="https://useafterly.com/blog" />
       </Helmet>
       <Nav mobile={mobile} />
 

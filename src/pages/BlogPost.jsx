@@ -88,18 +88,18 @@ export default function BlogPost() {
         <meta name="description" content={post.excerpt} />
         <meta property="og:title" content={`${post.title} — afterly Blog`} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={`https://afterly.app/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://useafterly.com/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={post.date} />
-        <link rel="canonical" href={`https://afterly.app/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://useafterly.com/blog/${post.slug}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": post.title,
           "description": post.excerpt,
           "datePublished": post.date,
-          "publisher": { "@type": "Organization", "name": "afterly", "url": "https://afterly.app" },
-          "url": `https://afterly.app/blog/${post.slug}`
+          "publisher": { "@type": "Organization", "name": "afterly", "url": "https://useafterly.com" },
+          "url": `https://useafterly.com/blog/${post.slug}`
         })}</script>
       </Helmet>
       <Grain />

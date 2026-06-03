@@ -104,8 +104,8 @@ export default function Resources() {
         <meta name="description" content="Science-backed resources for no contact and breakup recovery. What to do when the urge hits, books, podcasts, and the neuroscience of heartbreak." />
         <meta property="og:title" content="Breakup Recovery Resources — afterly" />
         <meta property="og:description" content="Science-backed resources for no contact and breakup recovery. No affiliate links. Just stuff worth knowing." />
-        <meta property="og:url" content="https://afterly.app/resources" />
-        <link rel="canonical" href="https://afterly.app/resources" />
+        <meta property="og:url" content="https://useafterly.com/resources" />
+        <link rel="canonical" href="https://useafterly.com/resources" />
       </Helmet>
       <Nav mobile={mobile} />
       <Glow x="50%" y="25%" size={mobile ? 400 : 700} intensity={0.15} />

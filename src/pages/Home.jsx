@@ -49,13 +49,13 @@ export default function Home() {
         <meta name="description" content="afterly helps you stay no contact after a breakup. Urge button, unsent vault, streak tracker. Stop checking their profile. Start healing instead." />
         <meta property="og:title" content="afterly — No Contact Support App for Breakups" />
         <meta property="og:description" content="Stop checking their profile. Start healing instead. afterly gives you support when the urge hits." />
-        <meta property="og:url" content="https://afterly.app/" />
+        <meta property="og:url" content="https://useafterly.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://afterly.app/og-image.png" />
+        <meta property="og:image" content="https://useafterly.com/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="afterly — No Contact Support App" />
         <meta name="twitter:description" content="Stop checking their profile. Start healing instead." />
-        <link rel="canonical" href="https://afterly.app/" />
+        <link rel="canonical" href="https://useafterly.com/" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -63,7 +63,7 @@ export default function Home() {
           "operatingSystem": "iOS",
           "applicationCategory": "HealthApplication",
           "description": "No contact support app for breakup recovery. Urge button, unsent vault, streak tracker.",
-          "url": "https://afterly.app",
+          "url": "https://useafterly.com",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })}</script>
       </Helmet>
