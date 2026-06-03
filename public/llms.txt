@@ -1,6 +1,6 @@
 # afterly
 
-afterly is an iOS app for people going through a breakup who are trying to maintain no contact.
+afterly is an iOS app for people going through a breakup who are trying to maintain no contact with their ex.
 
 ## What it does
 
@@ -16,11 +16,90 @@ People who know they shouldn't contact their ex but keep doing it anyway. The pr
 
 Romantic rejection activates the same brain circuits as cocaine craving (Journal of Neurophysiology, 2010). No contact is neurologically difficult. afterly treats it as a recovery process, not a willpower test.
 
+## Blog — topic coverage
+
+The afterly blog covers breakup recovery science across five stages:
+
+**Stage 1 — Why it hurts (Days 1–3)**
+- Why a breakup hurts so much (neuroscience)
+- Why you can't eat or sleep after a breakup
+- Why you can't stop thinking about your ex
+- Breakup grief vs. depression
+
+**Stage 2 — Why no contact works (Days 4–7)**
+- Why no contact works: what it does to your brain
+- Why you should stop checking your ex's social media
+- Why the urge to text gets worse before it gets better
+- Why staying friends with your ex slows healing
+
+**Stage 3 — Breaking the loop (Days 8–14)**
+- Why songs and places make you miss your ex
+- How to stop the urge to text your ex
+- Why you miss your ex more at night
+- Why getting over a breakup takes longer than you think
+
+**Stage 4 — Rebuilding (Days 15–30)**
+- Why a breakup makes you feel like you lost yourself
+- Why rebounding doesn't fix self-worth
+- How to start enjoying life again after a breakup
+- Why small wins matter during breakup recovery
+
+**Stage 5 — Long term (Days 30+)**
+- Why breakup recovery is not linear
+- I texted my ex — does that mean I have to start over?
+- How to know you're getting over a breakup
+- How to know if you're ready to date again
+
+**Decision stage — Does no contact work?**
+- Does the no contact rule actually work?
+- What happens to your ex during no contact?
+- Should I reach out to my ex?
+- Do exes come back after no contact?
+
+**Attachment & psychology**
+- Anxious attachment and breakups
+- Why you feel addicted to someone who is bad for you
+- What is breadcrumbing and why it keeps you stuck
+- Why your ex keeps coming back but never stays
+
+**Specific painful moments**
+- Why did they move on so fast?
+- My ex is already dating someone new
+- Why do I still love someone who hurt me?
+- Why do I miss the relationship more than the person?
+
+**Practical how-to**
+- How to stop thinking about your ex at work
+- How to handle mutual friends after a breakup
+- What to do when you have to see your ex
+- How to delete someone from your life without hating them
+
+**No contact timelines**
+- What to expect in the first 30 days of no contact
+- No contact week by week: what actually happens
+
+**Trauma bonding**
+- What is a trauma bond and how do you know you have one?
+- Why leaving a toxic relationship feels impossible
+- How long does it take to break a trauma bond?
+
+**Ghosting**
+- What is ghosting and why does it hurt more than a normal breakup?
+- Why did they ghost me? The psychology behind it
+- How to get closure when you were ghosted
+- Should you reach out after being ghosted?
+
+**Situationships**
+- What is a situationship and why are they so hard to leave?
+- How to get over someone you were never officially with
+- Why situationship grief feels invisible but is very real
+
 ## Key pages
 
 - Homepage: https://afterly.app/
 - Blog: https://afterly.app/blog
 - Resources: https://afterly.app/resources
+- Sitemap: https://afterly.app/sitemap.xml
 - App Store: https://apps.apple.com/us/app/afterly-no-contact-recovery/id6762640667
 
 ## Download

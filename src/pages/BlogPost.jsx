@@ -15,6 +15,60 @@ function formatDate(dateStr) {
   })
 }
 
+function getRelated(current, all, count = 3) {
+  const stopWords = new Set(['the','and','why','how','to','is','a','an','your','you','do','did','does','after','when','can','i','my','they','their','it','be','so','are','was','were','with','for','of','in','on','at','but','not','have','has','what','get','who'])
+  const tokenize = str => str.toLowerCase().split(/[-\s]+/).filter(w => w.length > 2 && !stopWords.has(w))
+  const currentTokens = new Set(tokenize(current.slug + ' ' + current.title))
+  return all
+    .filter(p => p.slug !== current.slug)
+    .map(p => {
+      const tokens = tokenize(p.slug + ' ' + p.title)
+      const overlap = tokens.filter(t => currentTokens.has(t)).length
+      return { post: p, score: overlap }
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, count)
+    .map(x => x.post)
+}
+
+function RelatedPosts({ current, mobile }) {
+  const related = getRelated(current, posts)
+  if (!related.length) return null
+  return (
+    <div style={{ marginTop: 64, paddingTop: 40, borderTop: `1px solid ${PAL.cardBorder}` }}>
+      <p style={{
+        fontFamily: FONT, fontSize: 11, fontWeight: 600,
+        color: PAL.accent, letterSpacing: 2, textTransform: 'uppercase',
+        margin: '0 0 24px',
+      }}>Related reading</p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        {related.map(p => (
+          <Link key={p.slug} to={`/blog/${p.slug}`} style={{ textDecoration: 'none' }}>
+            <div style={{
+              padding: '16px 20px',
+              border: `1px solid ${PAL.cardBorder}`,
+              borderRadius: 12,
+              transition: 'border-color 0.15s',
+            }}
+              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(124,108,255,0.35)'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = PAL.cardBorder}
+            >
+              <p style={{
+                fontFamily: FONT, fontSize: mobile ? 14 : 15, fontWeight: 600,
+                color: PAL.lavender, margin: '0 0 6px', lineHeight: 1.35,
+              }}>{p.title}</p>
+              <p style={{
+                fontFamily: FONT, fontSize: 13, color: PAL.mutedSoft,
+                margin: 0, lineHeight: 1.5,
+              }}>{p.excerpt}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function BlogPost() {
   const { slug } = useParams()
   const [mobile, setMobile] = useState(window.innerWidth < 768)
@@ -94,10 +148,40 @@ export default function BlogPost() {
           color: PAL.muted, lineHeight: 1.8,
           letterSpacing: -0.1,
         }}>
-          {post.content.split('\n\n').map((para, i) => (
-            <p key={i} style={{ margin: '0 0 24px' }}>{para}</p>
-          ))}
+          {Array.isArray(post.content)
+            ? post.content.map((block, i) => {
+                if (block.type === 'highlight') return (
+                  <p key={i} style={{
+                    margin: '0 0 24px',
+                    color: PAL.lavender,
+                    fontWeight: 700,
+                  }}>{block.text}</p>
+                )
+                if (block.type === 'h2') return (
+                  <h2 key={i} style={{
+                    fontFamily: FONT, fontWeight: 700,
+                    fontSize: mobile ? 20 : 24,
+                    color: PAL.white, letterSpacing: '-0.02em',
+                    lineHeight: 1.3, margin: '48px 0 16px',
+                  }}>{block.text}</h2>
+                )
+                if (block.type === 'h3') return (
+                  <h3 key={i} style={{
+                    fontFamily: FONT, fontWeight: 600,
+                    fontSize: mobile ? 17 : 19,
+                    color: PAL.white, letterSpacing: '-0.02em',
+                    lineHeight: 1.3, margin: '36px 0 12px',
+                  }}>{block.text}</h3>
+                )
+                return <p key={i} style={{ margin: '0 0 24px' }}>{block.text}</p>
+              })
+            : post.content.split('\n\n').map((para, i) => (
+                <p key={i} style={{ margin: '0 0 24px' }}>{para}</p>
+              ))
+          }
         </div>
+
+        <RelatedPosts current={post} mobile={mobile} />
 
         {/* CTA */}
         <div style={{
