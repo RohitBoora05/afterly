@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Glow from '../components/Glow'
@@ -43,6 +44,29 @@ export default function Home() {
       minHeight: '100vh', background: PAL.bg, position: 'relative',
       paddingTop: mobile ? 52 : 68,
     }}>
+      <Helmet>
+        <title>afterly — No Contact Support App for Breakups</title>
+        <meta name="description" content="afterly helps you stay no contact after a breakup. Urge button, unsent vault, streak tracker. Stop checking their profile. Start healing instead." />
+        <meta property="og:title" content="afterly — No Contact Support App for Breakups" />
+        <meta property="og:description" content="Stop checking their profile. Start healing instead. afterly gives you support when the urge hits." />
+        <meta property="og:url" content="https://afterly.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://afterly.app/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="afterly — No Contact Support App" />
+        <meta name="twitter:description" content="Stop checking their profile. Start healing instead." />
+        <link rel="canonical" href="https://afterly.app/" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "afterly",
+          "operatingSystem": "iOS",
+          "applicationCategory": "HealthApplication",
+          "description": "No contact support app for breakup recovery. Urge button, unsent vault, streak tracker.",
+          "url": "https://afterly.app",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        })}</script>
+      </Helmet>
       <Grain />
       <Nav mobile={mobile} />
 
@@ -116,57 +140,99 @@ export default function Home() {
       {/* ── Problem ── */}
       <section style={{
         position: 'relative', overflow: 'hidden',
-        minHeight: mobile ? '100svh' : 'auto',
-        display: mobile ? 'flex' : 'block',
+        minHeight: mobile ? '100svh' : 'calc(100vh - 68px)',
+        display: 'flex',
         flexDirection: 'column', justifyContent: 'center', alignItems: 'stretch',
       }}>
         <Glow x="50%" y="50%" size={mobile ? 500 : 900} intensity={0.14} hue="#3a2d6e" />
+        {!mobile && <Glow x="5%" y="50%" size={700} intensity={0.22} hue="#5e4ed9" />}
+        {!mobile && <Glow x="95%" y="50%" size={700} intensity={0.22} hue="#5e4ed9" />}
         <div style={{
           position: 'relative', zIndex: 2,
-          maxWidth: 880, margin: '0 auto',
+          maxWidth: 1240, margin: '0 auto',
           padding: mobile ? '64px 24px 64px' : '100px 56px',
-          textAlign: 'center',
+          display: mobile ? 'block' : 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: mobile ? 0 : 80,
+          textAlign: mobile ? 'center' : 'left',
         }}>
-          <Heading size={mobile ? 34 : 56} style={{ letterSpacing: '-0.035em' }}>
-            It's 2am.<br />
-            <span style={{ color: PAL.muted }}>Their name is right there.</span>
-          </Heading>
-          <div style={{
-            marginTop: mobile ? 28 : 64,
-            display: 'flex', flexDirection: 'column', gap: mobile ? 14 : 18,
-          }}>
-            {[
-              "You checked their profile. Again.",
-              "You drafted a text you didn't send.",
-              "You told yourself tomorrow will be different.",
-            ].map((l, i) => (
-              <div key={i} style={{
-                fontFamily: FONT, fontWeight: 400,
-                fontSize: mobile ? 15 : 18, lineHeight: 1.5,
-                color: PAL.lavender, opacity: 0.7, letterSpacing: -0.2,
-              }}>{l}</div>
-            ))}
+
+          {/* Left — copy */}
+          <div style={{ flex: '1 1 0' }}>
+            <Heading size={mobile ? 34 : 64} style={{ letterSpacing: '-0.035em' }}>
+              It's 2am.<br />
+              <span style={{ color: PAL.muted }}>Their name is right there.</span>
+            </Heading>
+            <div style={{
+              marginTop: mobile ? 28 : 48,
+              display: 'flex', flexDirection: 'column', gap: mobile ? 14 : 18,
+            }}>
+              {[
+                "You checked their profile. Again.",
+                "You drafted a text you didn't send.",
+                "You told yourself tomorrow will be different.",
+              ].map((l, i) => (
+                <div key={i} style={{
+                  fontFamily: FONT, fontWeight: 400,
+                  fontSize: mobile ? 15 : 18, lineHeight: 1.5,
+                  color: PAL.lavender, opacity: 0.7, letterSpacing: -0.2,
+                }}>{l}</div>
+              ))}
+            </div>
+            {mobile && (
+              <>
+                <div style={{
+                  marginTop: 32,
+                  fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
+                  fontSize: 20, color: PAL.white, letterSpacing: -0.4, lineHeight: 1.3,
+                }}>
+                  They are gone. The routine is not.
+                </div>
+                <div style={{
+                  marginTop: 40, paddingTop: 24,
+                  borderTop: `1px solid ${PAL.cardBorder}`,
+                  fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
+                  fontSize: 23, color: PAL.white, letterSpacing: -0.6,
+                  textWrap: 'balance', lineHeight: 1.3,
+                }}>
+                  That's not weakness.<br /><span style={{ color: PAL.accent }}>That's withdrawal.</span>
+                </div>
+              </>
+            )}
           </div>
-          <div style={{
-            marginTop: mobile ? 32 : 52,
-            fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
-            fontSize: mobile ? 20 : 26,
-            color: PAL.white, letterSpacing: -0.4, lineHeight: 1.3,
-          }}>
-            They are gone. The routine is not.
-          </div>
-          <MessageBubble mobile={mobile} />
-          <div style={{
-            marginTop: mobile ? 40 : 72,
-            paddingTop: mobile ? 24 : 40,
-            borderTop: `1px solid ${PAL.cardBorder}`,
-            fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
-            fontSize: mobile ? 23 : 30,
-            color: PAL.white, letterSpacing: -0.6,
-            textWrap: 'balance', lineHeight: 1.3,
-          }}>
-            That's not weakness.<br /><span style={{ color: PAL.accent }}>That's withdrawal.</span>
-          </div>
+
+          {/* Right — They are gone + MessageBubble + That's not weakness (desktop only) */}
+          {mobile ? (
+            <MessageBubble mobile={true} />
+          ) : (
+            <div style={{
+              flex: '0 0 420px',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              gap: 0,
+            }}>
+              <div style={{
+                fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
+                fontSize: 26, color: PAL.white, letterSpacing: -0.4, lineHeight: 1.3,
+                textAlign: 'center', marginBottom: 8,
+              }}>
+                They are gone. The routine is not.
+              </div>
+              <MessageBubble mobile={false} />
+              <div style={{
+                marginTop: 36,
+                paddingTop: 36,
+                borderTop: `1px solid ${PAL.cardBorder}`,
+                fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
+                fontSize: 32, color: PAL.white, letterSpacing: -0.6,
+                textWrap: 'balance', lineHeight: 1.3, textAlign: 'center',
+                width: '100%',
+              }}>
+                That's not weakness.<br /><span style={{ color: PAL.accent }}>That's withdrawal.</span>
+              </div>
+            </div>
+          )}
+
         </div>
       </section>
 
@@ -181,10 +247,10 @@ export default function Home() {
         <div style={{
           position: 'relative', zIndex: 2,
           maxWidth: 1240, margin: '0 auto',
-          padding: mobile ? '64px 24px 64px' : '100px 56px',
+          padding: mobile ? '64px 24px 64px' : '120px 80px',
         }}>
-          <div style={{ maxWidth: 720, marginBottom: mobile ? 28 : 64 }}>
-            <Heading size={mobile ? 32 : 56}>
+          <div style={{ maxWidth: 860, marginBottom: mobile ? 28 : 56 }}>
+            <Heading size={mobile ? 32 : 76}>
               This is what{' '}
               <span style={{ color: PAL.muted }}>you open instead.</span>
             </Heading>
@@ -192,10 +258,13 @@ export default function Home() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: mobile ? '1fr' : 'repeat(3, 1fr)',
-            gap: mobile ? 14 : 20,
+            gap: mobile ? 14 : 28,
           }}>
             {FEATURES.map((f, i) => (
-              <Card key={i} padding={mobile ? 24 : 32}>
+              <Card key={i} padding={mobile ? 24 : 44} style={{
+                border: '1px solid rgba(124,108,255,0.28)',
+                boxShadow: '0 0 24px rgba(124,108,255,0.12), 0 0 2px rgba(124,108,255,0.20)',
+              }}>
                 <div style={{
                   width: 46, height: 46, borderRadius: 12,
                   background: 'rgba(124,108,255,0.10)',

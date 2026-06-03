@@ -1,0 +1,28 @@
+# afterly
+
+afterly is an iOS app for people going through a breakup who are trying to maintain no contact.
+
+## What it does
+
+- **Urge button** — one tap opens a breathing exercise when the urge to text an ex peaks. The urge passes. The message never sends.
+- **Unsent vault** — a private space to write everything you want to say. It saves. It never sends.
+- **EMBER streak** — a visual orb that fills with light every day you stay no contact. Day 1 dark. Day 60 bright.
+
+## Who it's for
+
+People who know they shouldn't contact their ex but keep doing it anyway. The problem isn't willpower — it's the absence of something to do instead. afterly is that something.
+
+## The science
+
+Romantic rejection activates the same brain circuits as cocaine craving (Journal of Neurophysiology, 2010). No contact is neurologically difficult. afterly treats it as a recovery process, not a willpower test.
+
+## Key pages
+
+- Homepage: https://afterly.app/
+- Blog: https://afterly.app/blog
+- Resources: https://afterly.app/resources
+- App Store: https://apps.apple.com/us/app/afterly-no-contact-recovery/id6762640667
+
+## Download
+
+Free to try. iPhone only. App Store: https://apps.apple.com/us/app/afterly-no-contact-recovery/id6762640667

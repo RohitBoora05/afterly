@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Home from './pages/Home'
 import Reddit from './pages/Reddit'
 import Blog from './pages/Blog'
@@ -11,6 +12,7 @@ import Start from './pages/Start'
 
 export default function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,5 +26,6 @@ export default function App() {
         <Route path="/start" element={<Start />} />
       </Routes>
     </BrowserRouter>
+    </HelmetProvider>
   )
 }

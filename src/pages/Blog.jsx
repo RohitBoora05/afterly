@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -28,14 +29,23 @@ export default function Blog() {
   return (
     <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
       <Grain />
+      <Helmet>
+        <title>Blog — afterly | Honest writing about heartbreak and healing</title>
+        <meta name="description" content="No toxic positivity. No '10 tips' lists. Real writing about what no contact actually feels like and what actually helps." />
+        <meta property="og:title" content="afterly Blog — Honest writing about heartbreak and healing" />
+        <meta property="og:description" content="Real writing about no contact, breakup recovery, and what actually helps." />
+        <meta property="og:url" content="https://afterly.app/blog" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://afterly.app/blog" />
+      </Helmet>
       <Nav mobile={mobile} />
 
       <section style={{ position: 'relative', overflow: 'hidden' }}>
         <Glow x="60%" y="30%" size={mobile ? 500 : 900} intensity={0.2} />
         <div style={{
           position: 'relative', zIndex: 2,
-          maxWidth: 760, margin: '0 auto',
-          padding: mobile ? '48px 24px 32px' : '80px 24px 48px',
+          maxWidth: 960, margin: '0 auto',
+          padding: mobile ? '48px 24px 32px' : '100px 56px 56px',
         }}>
           <p style={{
             fontFamily: FONT, fontSize: 11, fontWeight: 600,
@@ -59,8 +69,8 @@ export default function Blog() {
 
       {/* Post list */}
       <div style={{
-        maxWidth: 760, margin: '0 auto',
-        padding: mobile ? '16px 24px 80px' : '16px 24px 100px',
+        maxWidth: 960, margin: '0 auto',
+        padding: mobile ? '16px 24px 80px' : '16px 56px 100px',
         position: 'relative', zIndex: 2,
       }}>
         {sorted.length === 0 ? (
