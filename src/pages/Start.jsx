@@ -81,8 +81,8 @@ export default function Start() {
             size={mobile ? 36 : 68}
             style={{ maxWidth: 880, letterSpacing: '-0.04em', lineHeight: 1.04 }}
           >
-            No contact is one of the hardest things{' '}
-            <span style={{ color: PAL.muted }}>you will do.</span>
+            No contact takes more than willpower.{' '}
+            <span style={{ color: PAL.muted }}>Here's the rest.</span>
           </Heading>
           <p style={{
             fontFamily: FONT, fontSize: mobile ? 14 : 17, fontWeight: 400,

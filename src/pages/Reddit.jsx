@@ -244,7 +244,7 @@ export default function Reddit() {
             margin: mobile ? '20px auto 0' : '36px auto 0',
             maxWidth: 520,
           }}>
-            {"Built for people who know what they need to do and can't make themselves do it."}
+            {"Built for people who know what they need to do."}
           </p>
           <div style={{
             marginTop: mobile ? 28 : 48,

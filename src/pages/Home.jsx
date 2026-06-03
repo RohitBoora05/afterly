@@ -78,8 +78,8 @@ export default function Home() {
             size={mobile ? 36 : 68}
             style={{ maxWidth: 880, letterSpacing: '-0.04em', lineHeight: 1.04 }}
           >
-            You know you shouldn't.{' '}
-            <span style={{ color: PAL.muted }}>You do it anyway.</span>
+            Stop checking their profile.{' '}
+            <span style={{ color: PAL.muted }}>Start healing instead.</span>
           </Heading>
           <p style={{
             fontFamily: FONT, fontSize: mobile ? 14 : 17, fontWeight: 400,

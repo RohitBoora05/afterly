@@ -216,30 +216,6 @@ export default function Resources() {
           />
         </Section>
 
-        {/* 7. Communities — second last */}
-        <Section title="Communities" mobile={mobile}>
-          <ResourceItem
-            name="r/BreakUps"
-            description="Large, active community. People sharing what they're going through in real time. Good for feeling less alone at 2am."
-            href="https://reddit.com/r/BreakUps"
-          />
-          <ResourceItem
-            name="r/ExNoContact"
-            description="Specifically for people doing no contact. Accountability posts, milestone updates, honest conversation."
-            href="https://reddit.com/r/ExNoContact"
-          />
-          <ResourceItem
-            name="r/heartbreak"
-            description="Smaller and more intimate than r/BreakUps. Good writing. People who take it seriously."
-            href="https://reddit.com/r/heartbreak"
-          />
-          <ResourceItem
-            name="r/selfimprovement"
-            description="For when you're ready to redirect the energy somewhere useful."
-            href="https://reddit.com/r/selfimprovement"
-          />
-        </Section>
-
         {/* 8. Crisis — last */}
         <Section title="If tonight is hard" mobile={mobile}>
           <ResourceItem
