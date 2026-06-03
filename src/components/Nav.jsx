@@ -26,7 +26,7 @@ export default function Nav({ mobile, minimal = false }) {
           </Link>
 
           {mobile ? (
-            /* Hamburger */
+            /* Hamburger — mobile only */
             <button
               onClick={() => setOpen(o => !o)}
               style={{
@@ -40,8 +40,7 @@ export default function Nav({ mobile, minimal = false }) {
             >
               <span style={{
                 display: 'block', height: 1.5, borderRadius: 2,
-                background: PAL.lavender,
-                width: open ? 22 : 22,
+                background: PAL.lavender, width: 22,
                 transition: 'all 200ms',
                 transform: open ? 'translateY(6.5px) rotate(45deg)' : 'none',
               }} />
@@ -53,17 +52,35 @@ export default function Nav({ mobile, minimal = false }) {
               }} />
               <span style={{
                 display: 'block', height: 1.5, borderRadius: 2,
-                background: PAL.lavender,
-                width: open ? 22 : 22,
+                background: PAL.lavender, width: 22,
                 transition: 'all 200ms',
                 transform: open ? 'translateY(-6.5px) rotate(-45deg)' : 'none',
               }} />
             </button>
           ) : (
+            /* Desktop — inline links + Download button */
             !minimal && (
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                <CTAButton small>Download</CTAButton>
-              </a>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+                {[
+                  { label: 'Blog', to: '/blog' },
+                  { label: 'Resources', to: '/resources' },
+                  { label: 'Support', to: '/support' },
+                ].map(item => (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    style={{
+                      fontFamily: FONT, fontSize: 14, fontWeight: 500,
+                      color: PAL.muted, textDecoration: 'none', letterSpacing: -0.2,
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                  <CTAButton small>Download</CTAButton>
+                </a>
+              </div>
             )
           )}
         </nav>

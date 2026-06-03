@@ -84,8 +84,8 @@ export default function Reddit() {
             size={mobile ? 36 : 68}
             style={{ maxWidth: 880, letterSpacing: '-0.04em', lineHeight: 1.04 }}
           >
-            You opened this instead of texting them.{' '}
-            <span style={{ color: PAL.muted }}>Good.</span>
+            Stop checking their profile.{' '}
+            <span style={{ color: PAL.muted }}>Start healing instead.</span>
           </Heading>
           <p style={{
             fontFamily: FONT, fontSize: mobile ? 14 : 17, fontWeight: 400,

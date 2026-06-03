@@ -43,14 +43,14 @@ export default function ScienceBar({ mobile }) {
 
   return (
     <div style={{
-      marginTop: mobile ? 36 : 52,
+      marginTop: mobile ? 36 : 0,
       maxWidth: mobile ? '100%' : 520,
       transition: 'opacity 0.6s ease',
       opacity: visible ? 1 : 0,
     }}>
       <div style={{
-        background: PAL.cardFill,
-        border: `1px solid ${PAL.cardBorder}`,
+        background: 'rgba(124,108,255,0.10)',
+        border: `1px solid rgba(124,108,255,0.35)`,
         borderRadius: 14,
         padding: mobile ? '16px 18px' : '18px 24px',
         backdropFilter: 'blur(12px)',
@@ -58,7 +58,7 @@ export default function ScienceBar({ mobile }) {
       }}>
         <p style={{
           fontFamily: FONT, fontSize: mobile ? 13 : 14,
-          color: PAL.muted, lineHeight: 1.65,
+          color: PAL.white, lineHeight: 1.65,
           margin: 0, letterSpacing: 0.1,
           fontStyle: 'italic',
           textAlign: mobile ? 'center' : 'left',
@@ -67,7 +67,7 @@ export default function ScienceBar({ mobile }) {
         </p>
         <p style={{
           fontFamily: FONT, fontSize: 11,
-          color: 'rgba(124,108,255,0.6)',
+          color: 'rgba(124,108,255,0.9)',
           margin: '8px 0 0', letterSpacing: 0.8,
           textTransform: 'uppercase',
           textAlign: mobile ? 'center' : 'left',

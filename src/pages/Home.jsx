@@ -49,64 +49,67 @@ export default function Home() {
       {/* ── Hero ── */}
       <section style={{
         position: 'relative', overflow: 'hidden',
-        minHeight: mobile ? 'calc(100svh - 52px)' : 'auto',
-        display: mobile ? 'flex' : 'block',
+        minHeight: mobile ? 'calc(100svh - 52px)' : 'calc(100vh - 68px)',
+        display: 'flex',
         flexDirection: 'column', justifyContent: 'center', alignItems: 'stretch',
       }}>
-        <Glow x="60%" y="40%" size={mobile ? 600 : 1100} intensity={0.33} />
-        <Glow x="20%" y="80%" size={mobile ? 400 : 700} intensity={0.17} hue="#5e4ed9" />
+        <Glow x="25%" y="50%" size={mobile ? 600 : 1100} intensity={0.33} />
+        <Glow x="10%" y="80%" size={mobile ? 400 : 700} intensity={0.17} hue="#5e4ed9" />
+        {!mobile && <Glow x="76%" y="45%" size={600} intensity={0.18} hue="#9a87ff" />}
         <div style={{
           position: 'relative', zIndex: 2,
           maxWidth: 1240, margin: '0 auto',
-          padding: mobile ? '40px 24px 56px' : '80px 56px 120px',
-          display: 'flex', flexDirection: 'column',
-          alignItems: mobile ? 'center' : 'flex-start',
+          padding: mobile ? '40px 24px 56px' : '140px 56px 120px',
+          display: 'flex',
+          flexDirection: mobile ? 'column' : 'row',
+          alignItems: mobile ? 'center' : 'center',
+          gap: mobile ? 0 : 80,
           textAlign: mobile ? 'center' : 'left',
         }}>
-          <div style={{ marginBottom: mobile ? 24 : 44, position: 'relative', display: 'inline-block' }}>
-            <AfterlyIcon size={mobile ? 92 : 112} />
-            <div style={{
-              position: 'absolute',
-              bottom: -10, left: '50%',
-              transform: 'translateX(-50%)',
-              width: '80%', height: 1,
-              background: 'linear-gradient(90deg, transparent, rgba(124,108,255,0.7), transparent)',
-            }} />
-          </div>
-          <Heading
-            as="h1"
-            size={mobile ? 36 : 68}
-            style={{ maxWidth: 880, letterSpacing: '-0.04em', lineHeight: 1.04 }}
-          >
-            Stop checking their profile.{' '}
-            <span style={{ color: PAL.muted }}>Start healing instead.</span>
-          </Heading>
-          <p style={{
-            fontFamily: FONT, fontSize: mobile ? 14 : 17, fontWeight: 400,
-            color: PAL.muted, lineHeight: 1.55, letterSpacing: -0.15,
-            maxWidth: 480, textWrap: 'pretty',
-            margin: mobile ? '20px auto 0' : '28px 0 0',
-          }}>
-            afterly helps you hold the line — one day at a time.
-          </p>
-          <div style={{
-            marginTop: mobile ? 28 : 40,
-            display: 'flex', flexDirection: 'column',
-            alignItems: mobile ? 'center' : 'flex-start',
-            gap: 10,
-          }}>
-            <AppStoreButton label={
-              <span>Download on the <span style={{ fontSize: '1.1em', fontWeight: 700 }}>App Store</span></span>
-            } />
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              color: PAL.mutedSoft, fontFamily: FONT, fontSize: 13,
+          {/* Left — logo + headline + CTA */}
+          <div style={{ flex: mobile ? 'none' : '1 1 0', display: 'flex', flexDirection: 'column', alignItems: mobile ? 'center' : 'flex-start' }}>
+            <Heading
+              as="h1"
+              size={mobile ? 36 : 68}
+              style={{ maxWidth: 600, letterSpacing: '-0.04em', lineHeight: 1.04 }}
+            >
+              Stop checking their profile.{' '}
+              <span style={{ color: PAL.muted }}>Start healing instead.</span>
+            </Heading>
+            <p style={{
+              fontFamily: FONT, fontSize: mobile ? 14 : 17, fontWeight: 400,
+              color: PAL.muted, lineHeight: 1.55, letterSpacing: -0.15,
+              maxWidth: 480, textWrap: 'pretty',
+              margin: mobile ? '20px auto 0' : '28px 0 0',
             }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: PAL.accent, flexShrink: 0 }} />
-              Free to try · iPhone
+              afterly helps you stay no contact — not by willpower, but by giving you support.
+            </p>
+            <div style={{
+              marginTop: mobile ? 28 : 40,
+              display: 'flex', flexDirection: 'column',
+              alignItems: mobile ? 'center' : 'flex-start',
+              gap: 10,
+            }}>
+              <AppStoreButton label={
+                <span>Download on the <span style={{ fontSize: '1.1em', fontWeight: 700 }}>App Store</span></span>
+              } />
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                color: PAL.mutedSoft, fontFamily: FONT, fontSize: 13,
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: PAL.accent, flexShrink: 0 }} />
+                Free to try · iPhone
+              </div>
             </div>
+            {mobile && <ScienceBar mobile={mobile} />}
           </div>
-          <ScienceBar mobile={mobile} />
+
+          {/* Right — ScienceBar (desktop only) */}
+          {!mobile && (
+            <div style={{ flex: '0 0 420px', paddingLeft: 40 }}>
+              <ScienceBar mobile={false} />
+            </div>
+          )}
         </div>
       </section>
 
@@ -126,7 +129,7 @@ export default function Home() {
         }}>
           <Heading size={mobile ? 34 : 56} style={{ letterSpacing: '-0.035em' }}>
             It's 2am.<br />
-            <span style={{ color: PAL.muted }}>Their name is<br />right there.</span>
+            <span style={{ color: PAL.muted }}>Their name is right there.</span>
           </Heading>
           <div style={{
             marginTop: mobile ? 28 : 64,
@@ -143,6 +146,14 @@ export default function Home() {
                 color: PAL.lavender, opacity: 0.7, letterSpacing: -0.2,
               }}>{l}</div>
             ))}
+          </div>
+          <div style={{
+            marginTop: mobile ? 32 : 52,
+            fontFamily: FONT, fontWeight: 700, fontStyle: 'italic',
+            fontSize: mobile ? 20 : 26,
+            color: PAL.white, letterSpacing: -0.4, lineHeight: 1.3,
+          }}>
+            They are gone. The routine is not.
           </div>
           <MessageBubble mobile={mobile} />
           <div style={{
@@ -237,7 +248,7 @@ export default function Home() {
             margin: mobile ? '20px auto 0' : '36px auto 0',
             maxWidth: 520,
           }}>
-            The hardest nights don't wait for morning. Neither does afterly.
+            You left the relationship. Not the habit.
           </p>
           <div style={{
             marginTop: mobile ? 28 : 48,
