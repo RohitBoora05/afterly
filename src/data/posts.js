@@ -4,6 +4,7 @@
 export const posts = [
   {
     slug: 'why-no-contact-is-so-hard',
+    publishDate: '2026-06-03',
     title: 'Why No Contact Is So Hard (And What Actually Helps)',
     date: '2026-05-14',
     readTime: '6 min read',
@@ -57,6 +58,7 @@ export const posts = [
 
   {
     slug: 'why-does-a-breakup-hurt-so-much',
+    publishDate: '2026-06-03',
     title: 'Why Does a Breakup Hurt So Much? The Science Explained',
     date: '2026-05-18',
     readTime: '2 min read',
@@ -84,6 +86,7 @@ export const posts = [
 
   {
     slug: 'why-cant-i-eat-or-sleep-after-breakup',
+    publishDate: '2026-06-03',
     title: 'Why Can\'t I Eat or Sleep After a Breakup?',
     date: '2026-05-17',
     readTime: '2 min read',
@@ -110,6 +113,7 @@ export const posts = [
 
   {
     slug: 'why-you-cant-stop-thinking-about-your-ex',
+    publishDate: '2026-06-03',
     title: 'Why You Can\'t Stop Thinking About Your Ex',
     date: '2026-05-16',
     readTime: '2 min read',
@@ -136,6 +140,7 @@ export const posts = [
 
   {
     slug: 'breakup-grief-vs-depression',
+    publishDate: '2026-06-03',
     title: 'Breakup Grief vs. Depression: What\'s Normal and What\'s Not',
     date: '2026-05-15',
     readTime: '2 min read',
@@ -164,6 +169,7 @@ export const posts = [
 
   {
     slug: 'why-no-contact-works',
+    publishDate: '2026-06-03',
     title: 'Why No Contact Works: What It Actually Does to Your Brain',
     date: '2026-05-22',
     readTime: '2 min read',
@@ -189,6 +195,7 @@ export const posts = [
 
   {
     slug: 'stop-checking-your-ex-social-media',
+    publishDate: '2026-06-03',
     title: 'Why You Should Stop Checking Your Ex\'s Social Media',
     date: '2026-05-21',
     readTime: '2 min read',
@@ -215,6 +222,7 @@ export const posts = [
 
   {
     slug: 'urge-to-text-ex-gets-worse-before-better',
+    publishDate: '2026-06-03',
     title: 'Why the Urge to Text Your Ex Gets Worse Before It Gets Better',
     date: '2026-05-20',
     readTime: '2 min read',
@@ -240,6 +248,7 @@ export const posts = [
 
   {
     slug: 'why-staying-friends-with-ex-slows-healing',
+    publishDate: '2026-06-03',
     title: 'Why Staying Friends With Your Ex Slows Your Healing',
     date: '2026-05-19',
     readTime: '2 min read',
@@ -268,6 +277,7 @@ export const posts = [
 
   {
     slug: 'why-songs-places-make-you-miss-your-ex',
+    publishDate: '2026-06-03',
     title: 'Why Certain Songs and Places Make You Miss Your Ex',
     date: '2026-05-26',
     readTime: '2 min read',
@@ -293,6 +303,7 @@ export const posts = [
 
   {
     slug: 'how-to-stop-urge-to-text-your-ex',
+    publishDate: '2026-06-05',
     title: 'How to Stop the Urge to Text Your Ex',
     date: '2026-05-25',
     readTime: '2 min read',
@@ -320,6 +331,7 @@ export const posts = [
 
   {
     slug: 'why-you-miss-your-ex-more-at-night',
+    publishDate: '2026-06-07',
     title: 'Why You Miss Your Ex More at Night',
     date: '2026-05-24',
     readTime: '2 min read',
@@ -345,6 +357,7 @@ export const posts = [
 
   {
     slug: 'why-getting-over-breakup-takes-longer',
+    publishDate: '2026-06-09',
     title: 'Why Getting Over a Breakup Takes Longer Than You Think',
     date: '2026-05-23',
     readTime: '2 min read',
@@ -372,6 +385,7 @@ export const posts = [
 
   {
     slug: 'why-breakup-makes-you-feel-lost',
+    publishDate: '2026-06-11',
     title: 'Why a Breakup Can Make You Feel Like You Lost Yourself',
     date: '2026-05-30',
     readTime: '2 min read',
@@ -397,6 +411,7 @@ export const posts = [
 
   {
     slug: 'why-rebounding-doesnt-fix-self-worth',
+    publishDate: '2026-06-13',
     title: 'Why Rebounding Doesn\'t Fix How You Feel About Yourself',
     date: '2026-05-29',
     readTime: '2 min read',
@@ -422,6 +437,7 @@ export const posts = [
 
   {
     slug: 'how-to-enjoy-life-again-after-breakup',
+    publishDate: '2026-06-15',
     title: 'How to Start Enjoying Life Again After a Breakup',
     date: '2026-05-28',
     readTime: '2 min read',
@@ -447,6 +463,7 @@ export const posts = [
 
   {
     slug: 'why-small-wins-matter-breakup-recovery',
+    publishDate: '2026-06-17',
     title: 'Why Small Wins Matter So Much During Breakup Recovery',
     date: '2026-05-27',
     readTime: '2 min read',
@@ -473,6 +490,7 @@ export const posts = [
 
   {
     slug: 'why-breakup-recovery-is-not-linear',
+    publishDate: '2026-06-19',
     title: 'Why Breakup Recovery Is Not Linear',
     date: '2026-06-03',
     readTime: '2 min read',
@@ -497,6 +515,7 @@ export const posts = [
 
   {
     slug: 'texted-my-ex-do-i-have-to-start-over',
+    publishDate: '2026-06-21',
     title: 'I Texted My Ex - Does That Mean I Have to Start Over?',
     date: '2026-06-02',
     readTime: '2 min read',
@@ -522,6 +541,7 @@ export const posts = [
 
   {
     slug: 'how-do-you-know-youre-getting-over-breakup',
+    publishDate: '2026-06-23',
     title: 'How Do You Know You\'re Getting Over a Breakup?',
     date: '2026-06-01',
     readTime: '2 min read',
@@ -547,6 +567,7 @@ export const posts = [
 
   {
     slug: 'how-to-know-youre-ready-to-date-again',
+    publishDate: '2026-06-25',
     title: 'How to Know If You\'re Ready to Date Again',
     date: '2026-05-31',
     readTime: '2 min read',
@@ -573,6 +594,7 @@ export const posts = [
 
   {
     slug: 'does-no-contact-rule-actually-work',
+    publishDate: '2026-06-27',
     title: 'Does the No Contact Rule Actually Work?',
     date: '2026-05-13',
     readTime: '2 min read',
@@ -598,6 +620,7 @@ export const posts = [
 
   {
     slug: 'what-happens-to-your-ex-during-no-contact',
+    publishDate: '2026-06-29',
     title: 'What Happens to Your Ex During No Contact?',
     date: '2026-05-12',
     readTime: '2 min read',
@@ -622,6 +645,7 @@ export const posts = [
 
   {
     slug: 'should-i-reach-out-to-my-ex',
+    publishDate: '2026-07-01',
     title: "Should I Reach Out to My Ex? Here's How to Decide",
     date: '2026-05-11',
     readTime: '2 min read',
@@ -647,6 +671,7 @@ export const posts = [
 
   {
     slug: 'do-exes-come-back-after-no-contact',
+    publishDate: '2026-07-03',
     title: 'Do Exes Come Back After No Contact?',
     date: '2026-05-10',
     readTime: '2 min read',
@@ -674,6 +699,7 @@ export const posts = [
 
   {
     slug: 'anxious-attachment-and-breakups',
+    publishDate: '2026-07-05',
     title: 'What Is Anxious Attachment and Why Does It Make Breakups Harder?',
     date: '2026-05-09',
     readTime: '2 min read',
@@ -699,6 +725,7 @@ export const posts = [
 
   {
     slug: 'why-you-feel-addicted-to-someone-bad-for-you',
+    publishDate: '2026-07-07',
     title: 'Why You Feel Addicted to Someone Who Is Bad for You',
     date: '2026-05-08',
     readTime: '2 min read',
@@ -724,6 +751,7 @@ export const posts = [
 
   {
     slug: 'what-is-breadcrumbing',
+    publishDate: '2026-07-09',
     title: 'What Is Breadcrumbing - and Why It Keeps You Stuck',
     date: '2026-05-07',
     readTime: '2 min read',
@@ -749,6 +777,7 @@ export const posts = [
 
   {
     slug: 'why-ex-keeps-coming-back-but-never-stays',
+    publishDate: '2026-07-11',
     title: 'Why Your Ex Keeps Coming Back But Never Stays',
     date: '2026-05-06',
     readTime: '2 min read',
@@ -777,6 +806,7 @@ export const posts = [
 
   {
     slug: 'why-did-they-move-on-so-fast',
+    publishDate: '2026-07-13',
     title: 'Why Did They Move On So Fast?',
     date: '2026-05-05',
     readTime: '2 min read',
@@ -802,6 +832,7 @@ export const posts = [
 
   {
     slug: 'my-ex-is-already-dating-someone-new',
+    publishDate: '2026-07-15',
     title: 'My Ex Is Already Dating Someone New',
     date: '2026-05-04',
     readTime: '2 min read',
@@ -827,6 +858,7 @@ export const posts = [
 
   {
     slug: 'why-do-i-still-love-someone-who-hurt-me',
+    publishDate: '2026-07-17',
     title: 'Why Do I Still Love Someone Who Hurt Me?',
     date: '2026-05-03',
     readTime: '2 min read',
@@ -851,6 +883,7 @@ export const posts = [
 
   {
     slug: 'why-do-i-miss-the-relationship-more-than-the-person',
+    publishDate: '2026-07-19',
     title: 'Why Do I Miss the Relationship More Than the Person?',
     date: '2026-05-02',
     readTime: '2 min read',
@@ -879,6 +912,7 @@ export const posts = [
 
   {
     slug: 'how-to-stop-thinking-about-your-ex-at-work',
+    publishDate: '2026-07-21',
     title: 'How to Stop Thinking About Your Ex at Work',
     date: '2026-05-01',
     readTime: '2 min read',
@@ -904,6 +938,7 @@ export const posts = [
 
   {
     slug: 'how-to-handle-mutual-friends-after-breakup',
+    publishDate: '2026-07-23',
     title: 'How to Handle Mutual Friends After a Breakup',
     date: '2026-04-30',
     readTime: '2 min read',
@@ -928,6 +963,7 @@ export const posts = [
 
   {
     slug: 'what-to-do-when-you-have-to-see-your-ex',
+    publishDate: '2026-07-25',
     title: 'What to Do When You Have to See Your Ex',
     date: '2026-04-29',
     readTime: '2 min read',
@@ -951,6 +987,7 @@ export const posts = [
 
   {
     slug: 'how-to-delete-someone-from-your-life',
+    publishDate: '2026-07-27',
     title: 'How to Delete Someone From Your Life Without Hating Them',
     date: '2026-04-28',
     readTime: '2 min read',
@@ -978,6 +1015,7 @@ export const posts = [
 
   {
     slug: 'why-no-contact-is-harder-the-second-time',
+    publishDate: '2026-07-29',
     title: 'Why No Contact Is Harder the Second Time',
     date: '2026-04-27',
     readTime: '2 min read',
@@ -1002,6 +1040,7 @@ export const posts = [
 
   {
     slug: 'what-getting-closure-actually-means',
+    publishDate: '2026-07-31',
     title: "What Getting Closure Actually Means (and Why You Probably Won't Get It)",
     date: '2026-04-26',
     readTime: '2 min read',
@@ -1027,6 +1066,7 @@ export const posts = [
 
   {
     slug: 'difference-between-missing-them-and-missing-relationship',
+    publishDate: '2026-08-02',
     title: 'The Difference Between Missing Them and Missing the Relationship',
     date: '2026-04-25',
     readTime: '2 min read',
@@ -1052,6 +1092,7 @@ export const posts = [
 
   {
     slug: 'why-blocking-your-ex-feels-so-hard',
+    publishDate: '2026-08-04',
     title: 'Why Blocking Your Ex Feels So Hard',
     date: '2026-04-24',
     readTime: '2 min read',
@@ -1080,6 +1121,7 @@ export const posts = [
 
   {
     slug: 'what-to-expect-first-30-days-no-contact',
+    publishDate: '2026-08-06',
     title: 'What to Expect in the First 30 Days of No Contact',
     date: '2026-04-23',
     readTime: '4 min read',
@@ -1120,6 +1162,7 @@ export const posts = [
 
   {
     slug: 'no-contact-week-by-week-what-happens',
+    publishDate: '2026-08-08',
     title: 'No Contact Week by Week: What Actually Happens',
     date: '2026-04-22',
     readTime: '4 min read',
@@ -1160,6 +1203,7 @@ export const posts = [
 
   {
     slug: 'what-is-a-trauma-bond',
+    publishDate: '2026-08-10',
     title: 'What Is a Trauma Bond and How Do You Know You Have One?',
     date: '2026-04-21',
     readTime: '2 min read',
@@ -1185,6 +1229,7 @@ export const posts = [
 
   {
     slug: 'why-leaving-toxic-relationship-feels-impossible',
+    publishDate: '2026-08-12',
     title: 'Why Leaving a Toxic Relationship Feels Impossible',
     date: '2026-04-20',
     readTime: '2 min read',
@@ -1213,6 +1258,7 @@ export const posts = [
 
   {
     slug: 'how-long-to-break-a-trauma-bond',
+    publishDate: '2026-08-14',
     title: 'How Long Does It Take to Break a Trauma Bond?',
     date: '2026-04-19',
     readTime: '2 min read',
@@ -1241,6 +1287,7 @@ export const posts = [
 
   {
     slug: 'what-is-ghosting-and-why-does-it-hurt-more',
+    publishDate: '2026-08-16',
     title: 'What Is Ghosting and Why Does It Hurt More Than a Normal Breakup?',
     date: '2026-04-18',
     readTime: '2 min read',
@@ -1266,6 +1313,7 @@ export const posts = [
 
   {
     slug: 'why-did-they-ghost-me',
+    publishDate: '2026-08-18',
     title: 'Why Did They Ghost Me? The Psychology Behind It',
     date: '2026-04-17',
     readTime: '2 min read',
@@ -1292,6 +1340,7 @@ export const posts = [
 
   {
     slug: 'how-to-get-closure-after-being-ghosted',
+    publishDate: '2026-08-20',
     title: 'How to Get Closure When You Were Ghosted',
     date: '2026-04-16',
     readTime: '2 min read',
@@ -1317,6 +1366,7 @@ export const posts = [
 
   {
     slug: 'should-you-reach-out-after-being-ghosted',
+    publishDate: '2026-08-22',
     title: 'Should You Reach Out After Being Ghosted?',
     date: '2026-04-15',
     readTime: '2 min read',
@@ -1346,6 +1396,7 @@ export const posts = [
 
   {
     slug: 'what-is-a-situationship',
+    publishDate: '2026-08-24',
     title: 'What Is a Situationship - and Why Are They So Hard to Leave?',
     date: '2026-04-14',
     readTime: '2 min read',
@@ -1371,6 +1422,7 @@ export const posts = [
 
   {
     slug: 'how-to-get-over-someone-you-never-officially-dated',
+    publishDate: '2026-08-26',
     title: 'How to Get Over Someone You Were Never Officially With',
     date: '2026-04-13',
     readTime: '2 min read',
@@ -1395,6 +1447,7 @@ export const posts = [
 
   {
     slug: 'why-situationship-grief-feels-invisible',
+    publishDate: '2026-08-28',
     title: 'Why Situationship Grief Feels Invisible (But Is Very Real)',
     date: '2026-04-12',
     readTime: '2 min read',

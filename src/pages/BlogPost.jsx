@@ -81,6 +81,10 @@ export default function BlogPost() {
   const post = posts.find(p => p.slug === slug)
   if (!post) return <Navigate to="/blog" replace />
 
+  const today = new Date()
+  today.setHours(23, 59, 59, 999)
+  if (post.publishDate && new Date(post.publishDate) > today) return <Navigate to="/blog" replace />
+
   return (
     <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
       <Helmet>

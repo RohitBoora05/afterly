@@ -24,7 +24,11 @@ export default function Blog() {
     return () => window.removeEventListener('resize', handler)
   }, [])
 
-  const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+  const today = new Date()
+  today.setHours(23, 59, 59, 999)
+  const sorted = [...posts]
+    .filter(p => !p.publishDate || new Date(p.publishDate) <= today)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
     <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
