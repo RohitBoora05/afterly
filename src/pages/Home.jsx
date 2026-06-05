@@ -45,6 +45,7 @@ export default function Home() {
       paddingTop: mobile ? 52 : 68,
     }}>
       <Helmet>
+        <meta name="google-site-verification" content="t-rN5KFH8EgZ2IaEaTZsd2MU41oiCsTIc1nB3LYvrQQ" />
         <title>afterly — No Contact Support App for Breakups</title>
         <meta name="description" content="afterly helps you stay no contact after a breakup. Urge button, unsent vault, streak tracker. Stop checking their profile. Start healing instead." />
         <meta property="og:title" content="afterly — No Contact Support App for Breakups" />
