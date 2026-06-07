@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import AppStoreButton from '../components/AppStoreButton'
 import Glow from '../components/Glow'
 import Grain from '../components/Grain'
-import { posts, isPublished } from '../lib/posts.jsx'
+import { fetchAllPosts, isPublished } from '../lib/posts.jsx'
 import { PAL, FONT } from '../tokens'
 
 function formatDate(dateStr) {
@@ -31,8 +31,8 @@ function getRelated(current, all, count = 3) {
     .map(x => x.post)
 }
 
-function RelatedPosts({ current, mobile }) {
-  const related = getRelated(current, posts)
+function RelatedPosts({ current, allPosts, mobile }) {
+  const related = getRelated(current, allPosts)
   if (!related.length) return null
   return (
     <div style={{ marginTop: 64, paddingTop: 40, borderTop: `1px solid ${PAL.cardBorder}` }}>
@@ -72,16 +72,38 @@ function RelatedPosts({ current, mobile }) {
 export default function BlogPost() {
   const { slug } = useParams()
   const [mobile, setMobile] = useState(window.innerWidth < 768)
+  const [post, setPost] = useState(null)
+  const [allPosts, setAllPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [notFound, setNotFound] = useState(false)
+
   useEffect(() => {
     const handler = () => setMobile(window.innerWidth < 768)
     window.addEventListener('resize', handler)
     return () => window.removeEventListener('resize', handler)
   }, [])
 
-  const post = posts.find(p => p.slug === slug)
-  if (!post) return <Navigate to="/blog" replace />
+  useEffect(() => {
+    setLoading(true)
+    setNotFound(false)
+    fetchAllPosts().then(all => {
+      setAllPosts(all)
+      const found = all.find(p => p.slug === slug)
+      if (!found || !isPublished(found)) {
+        setNotFound(true)
+      } else {
+        setPost(found)
+      }
+    }).finally(() => setLoading(false))
+  }, [slug])
 
-  if (!isPublished(post)) return <Navigate to="/blog" replace />
+  if (loading) return (
+    <div style={{ minHeight: '100vh', background: '#0D0B18', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <p style={{ color: '#888', fontFamily: 'sans-serif' }}>Loading…</p>
+    </div>
+  )
+
+  if (notFound) return <Navigate to="/blog" replace />
 
   return (
     <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
@@ -155,7 +177,7 @@ export default function BlogPost() {
           }}
         />
 
-        <RelatedPosts current={post} mobile={mobile} />
+        <RelatedPosts current={post} allPosts={allPosts} mobile={mobile} />
 
         {/* CTA */}
         <div style={{

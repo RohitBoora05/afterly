@@ -7,7 +7,7 @@ import Glow from '../components/Glow'
 import Grain from '../components/Grain'
 import Heading from '../components/Heading'
 import AfterlyWordmark from '../components/AfterlyWordmark'
-import { posts, isPublished } from '../lib/posts.jsx'
+import { fetchAllPosts, isPublished } from '../lib/posts.jsx'
 import { PAL, FONT } from '../tokens'
 
 function formatDate(dateStr) {
@@ -18,10 +18,19 @@ function formatDate(dateStr) {
 
 export default function Blog() {
   const [mobile, setMobile] = useState(window.innerWidth < 768)
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     const handler = () => setMobile(window.innerWidth < 768)
     window.addEventListener('resize', handler)
     return () => window.removeEventListener('resize', handler)
+  }, [])
+
+  useEffect(() => {
+    fetchAllPosts()
+      .then(setPosts)
+      .finally(() => setLoading(false))
   }, [])
 
   const sorted = [...posts]
@@ -75,7 +84,11 @@ export default function Blog() {
         padding: mobile ? '16px 24px 80px' : '16px 56px 100px',
         position: 'relative', zIndex: 2,
       }}>
-        {sorted.length === 0 ? (
+        {loading ? (
+          <p style={{ fontFamily: FONT, color: PAL.mutedSoft, fontSize: 15 }}>
+            Loading posts…
+          </p>
+        ) : sorted.length === 0 ? (
           <p style={{ fontFamily: FONT, color: PAL.mutedSoft, fontSize: 15 }}>
             First posts coming soon.
           </p>
