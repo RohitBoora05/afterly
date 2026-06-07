@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: krish10007/afterly-landing
+  branch: main
+  base_url: https://useafterly.com
+  auth_endpoint: /api/auth
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: content/posts
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Read Time", name: "readTime", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Content", name: "body", widget: "markdown" }

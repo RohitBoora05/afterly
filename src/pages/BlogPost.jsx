@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import AppStoreButton from '../components/AppStoreButton'
 import Glow from '../components/Glow'
 import Grain from '../components/Grain'
-import { posts } from '../data/posts'
+import { posts, isPublished } from '../lib/posts.jsx'
 import { PAL, FONT } from '../tokens'
 
 function formatDate(dateStr) {
@@ -81,9 +81,7 @@ export default function BlogPost() {
   const post = posts.find(p => p.slug === slug)
   if (!post) return <Navigate to="/blog" replace />
 
-  const today = new Date()
-  today.setHours(23, 59, 59, 999)
-  if (post.publishDate && new Date(post.publishDate) > today) return <Navigate to="/blog" replace />
+  if (!isPublished(post)) return <Navigate to="/blog" replace />
 
   return (
     <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
@@ -147,43 +145,15 @@ export default function BlogPost() {
         </h1>
 
         {/* Content */}
-        <div style={{
-          fontFamily: FONT, fontSize: mobile ? 16 : 17,
-          color: PAL.muted, lineHeight: 1.8,
-          letterSpacing: -0.1,
-        }}>
-          {Array.isArray(post.content)
-            ? post.content.map((block, i) => {
-                if (block.type === 'highlight') return (
-                  <p key={i} style={{
-                    margin: '0 0 24px',
-                    color: PAL.lavender,
-                    fontWeight: 700,
-                  }}>{block.text}</p>
-                )
-                if (block.type === 'h2') return (
-                  <h2 key={i} style={{
-                    fontFamily: FONT, fontWeight: 700,
-                    fontSize: mobile ? 20 : 24,
-                    color: PAL.white, letterSpacing: '-0.02em',
-                    lineHeight: 1.3, margin: '48px 0 16px',
-                  }}>{block.text}</h2>
-                )
-                if (block.type === 'h3') return (
-                  <h3 key={i} style={{
-                    fontFamily: FONT, fontWeight: 600,
-                    fontSize: mobile ? 17 : 19,
-                    color: PAL.white, letterSpacing: '-0.02em',
-                    lineHeight: 1.3, margin: '36px 0 12px',
-                  }}>{block.text}</h3>
-                )
-                return <p key={i} style={{ margin: '0 0 24px' }}>{block.text}</p>
-              })
-            : post.content.split('\n\n').map((para, i) => (
-                <p key={i} style={{ margin: '0 0 24px' }}>{para}</p>
-              ))
-          }
-        </div>
+        <div
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+          style={{
+            fontFamily: FONT, fontSize: mobile ? 16 : 17,
+            color: PAL.muted, lineHeight: 1.8,
+            letterSpacing: -0.1,
+          }}
+        />
 
         <RelatedPosts current={post} mobile={mobile} />
 

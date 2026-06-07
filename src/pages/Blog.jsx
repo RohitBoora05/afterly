@@ -7,7 +7,7 @@ import Glow from '../components/Glow'
 import Grain from '../components/Grain'
 import Heading from '../components/Heading'
 import AfterlyWordmark from '../components/AfterlyWordmark'
-import { posts } from '../data/posts'
+import { posts, isPublished } from '../lib/posts.jsx'
 import { PAL, FONT } from '../tokens'
 
 function formatDate(dateStr) {
@@ -24,10 +24,8 @@ export default function Blog() {
     return () => window.removeEventListener('resize', handler)
   }, [])
 
-  const today = new Date()
-  today.setHours(23, 59, 59, 999)
   const sorted = [...posts]
-    .filter(p => !p.publishDate || new Date(p.publishDate) <= today)
+    .filter(isPublished)
     .sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
