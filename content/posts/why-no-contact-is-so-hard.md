@@ -6,8 +6,7 @@ publishDate: 2026-06-03
 readTime: 6 min read
 excerpt: >
   You know reaching out isn't the answer. So why does the urge to text your ex
-  feel so overwhelming? The answer may have less to do with love and more to do
-  with how attachment works.
+  feel so overwhelming?
 ---
 
 You make it through the day.
