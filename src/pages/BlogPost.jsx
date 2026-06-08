@@ -106,7 +106,7 @@ export default function BlogPost() {
   if (notFound) return <Navigate to="/blog" replace />
 
   return (
-    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68 }}>
+    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68, overflowX: 'hidden' }}>
       <Helmet>
         <title>{post.title} — afterly Blog</title>
         <meta name="description" content={post.excerpt} />
