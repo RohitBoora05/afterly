@@ -64,6 +64,4 @@ export async function fetchPost(slug) {
 export function isPublished(post) {
   if (!post.publishDate) return true
   const today = new Date()
-  today.setHours(23, 59, 59, 999)
-  return new Date(post.publishDate) <= today
-}
+  today.setHour

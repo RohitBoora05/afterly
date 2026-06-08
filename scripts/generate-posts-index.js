@@ -32,11 +32,18 @@ function parseFrontmatter(raw) {
     } else {
       const q = value[0]
       if ((q === '"' || q === "'") && !value.endsWith(q)) {
+        // Quoted multi-line: collect until closing quote
         while (i + 1 < lines.length) {
           i++
           const next = lines[i].trim()
           value += ' ' + next
           if (next.endsWith(q)) break
+        }
+      } else if (q !== '"' && q !== "'") {
+        // Unquoted multi-line: collect indented continuation lines
+        while (i + 1 < lines.length && (lines[i+1].startsWith(' ') || lines[i+1].startsWith('\t'))) {
+          i++
+          value += ' ' + lines[i].trim()
         }
       }
       if (value.length >= 2 && value[0] === value[value.length - 1] && (value[0] === '"' || value[0] === "'")) {
