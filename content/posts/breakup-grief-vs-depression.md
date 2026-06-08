@@ -4,9 +4,8 @@ slug: breakup-grief-vs-depression
 date: 2026-05-15
 publishDate: 2026-06-03
 readTime: 6 min read
-excerpt: After a breakup, sadness can feel all-consuming. But grief and
-  depression aren't the same thing. Understanding the difference can help you
-  make sense of what you're experiencing.
+excerpt: "After a breakup, sadness can feel all-consuming. But grief and
+  depression aren't the same thing. "
 ---
 
 After a breakup, there can be moments when everything feels wrong.
