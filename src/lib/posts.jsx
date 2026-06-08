@@ -10,8 +10,9 @@ let indexCache = null
 const postCache = {}
 
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/)
-  if (!match) return { data: {}, content: raw }
+  const normalized = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/)
+  if (!match) return { data: {}, content: normalized }
 
   const data = {}
   for (const line of match[1].split('\n')) {

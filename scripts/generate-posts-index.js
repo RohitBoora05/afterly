@@ -7,7 +7,8 @@ const POSTS_DIR = join(__dirname, '..', 'content', 'posts')
 const OUT_FILE  = join(__dirname, '..', 'content', 'posts-index.json')
 
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---/)
+  const normalized = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
+  const match = normalized.match(/^---\n([\s\S]*?)\n---/)
   if (!match) return {}
   const lines = match[1].split('\n')
   const data = {}
@@ -18,7 +19,6 @@ function parseFrontmatter(raw) {
     if (colonIdx === -1) { i++; continue }
     const key = line.slice(0, colonIdx).trim()
     let value = line.slice(colonIdx + 1).trim()
-    // Handle YAML block scalars (> folded, | literal)
     if (value === '>' || value === '|') {
       const isLiteral = value === '|'
       const blockLines = []
@@ -30,8 +30,16 @@ function parseFrontmatter(raw) {
       while (blockLines.length && blockLines[blockLines.length - 1] === '') blockLines.pop()
       value = isLiteral ? blockLines.join('\n') : blockLines.join(' ')
     } else {
-      if ((value.startsWith('"') && value.endsWith('"')) ||
-          (value.startsWith("'") && value.endsWith("'"))) {
+      const q = value[0]
+      if ((q === '"' || q === "'") && !value.endsWith(q)) {
+        while (i + 1 < lines.length) {
+          i++
+          const next = lines[i].trim()
+          value += ' ' + next
+          if (next.endsWith(q)) break
+        }
+      }
+      if (value.length >= 2 && value[0] === value[value.length - 1] && (value[0] === '"' || value[0] === "'")) {
         value = value.slice(1, -1)
       }
       i++
@@ -58,4 +66,4 @@ const index = files.map(filename => {
 })
 
 writeFileSync(OUT_FILE, JSON.stringify(index, null, 2))
-console.log(`posts-index.json written — ${index.length} posts`)
+console.log('posts-index.json written - ' + index.length + ' posts')
