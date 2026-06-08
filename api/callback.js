@@ -29,17 +29,37 @@ export default async function handler(req, res) {
   res.send(`<!DOCTYPE html>
 <html>
 <head><title>Authorizing...</title></head>
-<body>
+<body style="font-family:monospace;padding:20px;background:#111;color:#eee">
+<p id="s1">Checking opener...</p>
+<p id="s2">-</p>
+<p id="s3">-</p>
 <script>
 (function() {
-  function receiveMessage(e) {
-    window.opener.postMessage(
-      'authorization:github:success:{"token":"${token}","provider":"github"}',
-      e.origin
-    );
+  var s1 = document.getElementById('s1');
+  var s2 = document.getElementById('s2');
+  var s3 = document.getElementById('s3');
+
+  if (!window.opener) {
+    s1.textContent = 'ERROR: window.opener is null — cannot communicate with CMS';
+    return;
   }
-  window.addEventListener("message", receiveMessage, false);
+  s1.textContent = 'opener: OK';
+
+  window.addEventListener("message", function(e) {
+    s2.textContent = 'CMS responded from: ' + e.origin + ' | data: ' + e.data;
+    try {
+      window.opener.postMessage(
+        'authorization:github:success:{"token":"${token}","provider":"github"}',
+        e.origin
+      );
+      s3.textContent = 'Token sent. Waiting for CMS to close this window...';
+    } catch(err) {
+      s3.textContent = 'ERROR sending token: ' + err.message;
+    }
+  }, false);
+
   window.opener.postMessage("authorizing:github", "*");
+  s2.textContent = 'Sent "authorizing:github" — waiting for CMS response...';
 })();
 </script>
 </body>
