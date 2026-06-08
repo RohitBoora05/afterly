@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 
+site_url: https://useafterly.com
+
 backend:
   name: github
   repo: krish10007/afterly-landing
   branch: main
-  base_url: https://useafterly.com
-  auth_endpoint: /api/auth
 
 media_folder: public/images
 public_folder: /images
