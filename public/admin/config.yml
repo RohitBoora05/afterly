@@ -2,7 +2,7 @@ backend:
   name: github
   repo: krish10007/afterly-landing
   branch: main
-  base_url: https://useafterly.com
+  base_url: https://www.useafterly.com
   auth_endpoint: /api/auth
 
 media_folder: public/images
