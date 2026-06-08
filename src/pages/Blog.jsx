@@ -38,7 +38,7 @@ export default function Blog() {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
-    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68, overflowX: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68, overflowX: 'hidden', position: 'relative' }}>
       <Grain />
       <Helmet>
         <title>Blog — afterly | Honest writing about heartbreak and healing</title>

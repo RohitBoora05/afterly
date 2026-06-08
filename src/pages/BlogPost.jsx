@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import AppStoreButton from '../components/AppStoreButton'
 import Glow from '../components/Glow'
 import Grain from '../components/Grain'
-import { fetchAllPosts, isPublished } from '../lib/posts.jsx'
+import { fetchAllPosts, fetchPost, isPublished } from '../lib/posts.jsx'
 import { PAL, FONT } from '../tokens'
 
 function formatDate(dateStr) {
@@ -86,13 +86,14 @@ export default function BlogPost() {
   useEffect(() => {
     setLoading(true)
     setNotFound(false)
-    fetchAllPosts().then(all => {
+    Promise.all([fetchAllPosts(), fetchPost(slug)]).then(([all, fullPost]) => {
       setAllPosts(all)
-      const found = all.find(p => p.slug === slug)
-      if (!found || !isPublished(found)) {
+      // Check publishDate against the index entry (has publishDate; fullPost may not)
+      const meta = all.find(p => p.slug === slug)
+      if (!fullPost || !meta || !isPublished(meta)) {
         setNotFound(true)
       } else {
-        setPost(found)
+        setPost(fullPost)
       }
     }).finally(() => setLoading(false))
   }, [slug])
