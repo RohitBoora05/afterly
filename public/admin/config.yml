@@ -1,13 +1,11 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 
-site_url: https://useafterly.com
-
 backend:
   name: github
   repo: krish10007/afterly-landing
   branch: main
   base_url: https://useafterly.com
-  auth_endpoint: api/auth
+  auth_endpoint: /api/auth
 
 media_folder: public/images
 public_folder: /images
@@ -27,4 +25,4 @@ collections:
       - { label: "Publish Date", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Read Time", name: "readTime", widget: "string" }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Content", name: "
