@@ -106,7 +106,7 @@ export default function BlogPost() {
   if (notFound) return <Navigate to="/blog" replace />
 
   return (
-    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68, overflowX: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68, overflowX: 'hidden', position: 'relative' }}>
       <Helmet>
         <title>{post.title} — afterly Blog</title>
         <meta name="description" content={post.excerpt} />
@@ -129,7 +129,9 @@ export default function BlogPost() {
       <Grain />
       <Nav mobile={mobile} />
 
-      <Glow x="60%" y="20%" size={mobile ? 400 : 700} intensity={0.18} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 500, overflow: 'hidden', pointerEvents: 'none' }}>
+        <Glow x="60%" y="20%" size={mobile ? 400 : 700} intensity={0.18} />
+      </div>
 
       <main style={{
         position: 'relative', zIndex: 2,
