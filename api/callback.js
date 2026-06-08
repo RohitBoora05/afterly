@@ -26,13 +26,13 @@ export default async function handler(req, res) {
   const token = data.access_token
   const content = `<!doctype html><html><body><script>
     (function() {
-      function receiveMessage(e) {
+      window.addEventListener("message", function(e) {
         window.opener.postMessage(
           'authorization:github:success:{"token":"${token}","provider":"github"}',
           e.origin
         );
-      }
-      window.addEventListener("message", receiveMessage, false);
+        window.close();
+      }, false);
       window.opener.postMessage("authorizing:github", "*");
     })()
   <\/script></body></html>`
