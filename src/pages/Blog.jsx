@@ -7,7 +7,7 @@ import Glow from '../components/Glow'
 import Grain from '../components/Grain'
 import Heading from '../components/Heading'
 import AfterlyWordmark from '../components/AfterlyWordmark'
-import { fetchAllPosts, isPublished } from '../lib/posts.jsx'
+import { fetchAllPosts, fetchPost, isPublished } from '../lib/posts.jsx'
 import { PAL, FONT } from '../tokens'
 
 function formatDate(dateStr) {
@@ -98,6 +98,7 @@ export default function Blog() {
               key={post.slug}
               to={`/blog/${post.slug}`}
               style={{ textDecoration: 'none', display: 'block' }}
+              onMouseEnter={() => fetchPost(post.slug)}
             >
               <div style={{
                 padding: mobile ? '28px 0' : '36px 0',

@@ -72,9 +72,11 @@ function RelatedPosts({ current, allPosts, mobile }) {
 export default function BlogPost() {
   const { slug } = useParams()
   const [mobile, setMobile] = useState(window.innerWidth < 768)
-  const [post, setPost] = useState(null)
+  const [post, setPost] = useState(null)       // full post with html
   const [allPosts, setAllPosts] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [meta, setMeta] = useState(null)        // metadata from index (fast)
+  const [bodyLoading, setBodyLoading] = useState(true)
+  const [loading, setLoading] = useState(true)  // true until at least meta is ready
   const [notFound, setNotFound] = useState(false)
 
   useEffect(() => {
@@ -85,17 +87,29 @@ export default function BlogPost() {
 
   useEffect(() => {
     setLoading(true)
+    setBodyLoading(true)
     setNotFound(false)
-    Promise.all([fetchAllPosts(), fetchPost(slug)]).then(([all, fullPost]) => {
+    setPost(null)
+    setMeta(null)
+
+    // Phase 1: load index (cached after first visit — instant)
+    fetchAllPosts().then(all => {
       setAllPosts(all)
-      // Check publishDate against the index entry (has publishDate; fullPost may not)
-      const meta = all.find(p => p.slug === slug)
-      if (!fullPost || !meta || !isPublished(meta)) {
+      const entry = all.find(p => p.slug === slug)
+      if (!entry || !isPublished(entry)) {
         setNotFound(true)
-      } else {
-        setPost(fullPost)
+        setLoading(false)
+        return
       }
-    }).finally(() => setLoading(false))
+      setMeta(entry)
+      setLoading(false) // show header immediately
+
+      // Phase 2: load post body (single .md fetch)
+      fetchPost(slug).then(fullPost => {
+        if (!fullPost) { setNotFound(true); return }
+        setPost(fullPost)
+      }).finally(() => setBodyLoading(false))
+    }).catch(() => { setNotFound(true); setLoading(false) })
   }, [slug])
 
   if (loading) return (
@@ -109,22 +123,22 @@ export default function BlogPost() {
   return (
     <div style={{ minHeight: '100vh', background: PAL.bg, paddingTop: mobile ? 52 : 68, overflowX: 'hidden', position: 'relative' }}>
       <Helmet>
-        <title>{post.title} — afterly Blog</title>
-        <meta name="description" content={post.excerpt} />
-        <meta property="og:title" content={`${post.title} — afterly Blog`} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={`https://useafterly.com/blog/${post.slug}`} />
+        <title>{meta.title} — afterly Blog</title>
+        <meta name="description" content={meta.excerpt} />
+        <meta property="og:title" content={`${meta.title} — afterly Blog`} />
+        <meta property="og:description" content={meta.excerpt} />
+        <meta property="og:url" content={`https://useafterly.com/blog/${meta.slug}`} />
         <meta property="og:type" content="article" />
-        <meta property="article:published_time" content={post.date} />
-        <link rel="canonical" href={`https://useafterly.com/blog/${post.slug}`} />
+        <meta property="article:published_time" content={meta.date} />
+        <link rel="canonical" href={`https://useafterly.com/blog/${meta.slug}`} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": post.title,
-          "description": post.excerpt,
-          "datePublished": post.date,
+          "headline": meta.title,
+          "description": meta.excerpt,
+          "datePublished": meta.date,
           "publisher": { "@type": "Organization", "name": "afterly", "url": "https://useafterly.com" },
-          "url": `https://useafterly.com/blog/${post.slug}`
+          "url": `https://useafterly.com/blog/${meta.slug}`
         })}</script>
       </Helmet>
       <Grain />
@@ -148,39 +162,43 @@ export default function BlogPost() {
           ← All posts
         </Link>
 
-        {/* Meta */}
+        {/* Meta — from index, renders instantly */}
         <div style={{
           display: 'flex', alignItems: 'center', gap: 12,
           fontFamily: FONT, fontSize: 12, color: PAL.mutedSoft,
           letterSpacing: 0.2, marginBottom: 20,
         }}>
-          <span>{formatDate(post.date)}</span>
+          <span>{formatDate(meta.date)}</span>
           <span style={{ width: 3, height: 3, borderRadius: '50%', background: PAL.mutedSoft }} />
-          <span>{post.readTime}</span>
+          <span>{meta.readTime}</span>
         </div>
 
-        {/* Title */}
+        {/* Title — from index, renders instantly */}
         <h1 style={{
           fontFamily: FONT, fontWeight: 700,
           fontSize: mobile ? 28 : 42,
           color: PAL.white, letterSpacing: '-0.03em',
           lineHeight: 1.15, margin: '0 0 40px',
         }}>
-          {post.title}
+          {meta.title}
         </h1>
 
-        {/* Content */}
-        <div
-          className="post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          style={{
-            fontFamily: FONT, fontSize: mobile ? 16 : 17,
-            color: PAL.muted, lineHeight: 1.8,
-            letterSpacing: -0.1,
-          }}
-        />
+        {/* Content — waits for fetchPost only */}
+        {bodyLoading ? (
+          <p style={{ fontFamily: FONT, color: PAL.mutedSoft, fontSize: 15, opacity: 0.5 }}>…</p>
+        ) : (
+          <div
+            className="post-content"
+            dangerouslySetInnerHTML={{ __html: post?.html }}
+            style={{
+              fontFamily: FONT, fontSize: mobile ? 16 : 17,
+              color: PAL.muted, lineHeight: 1.8,
+              letterSpacing: -0.1,
+            }}
+          />
+        )}
 
-        <RelatedPosts current={post} allPosts={allPosts} mobile={mobile} />
+        {!bodyLoading && <RelatedPosts current={meta} allPosts={allPosts} mobile={mobile} />}
 
         {/* CTA */}
         <div style={{
